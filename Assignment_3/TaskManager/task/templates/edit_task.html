@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %} 
 
 {% block content %}
-    <h2>Add Task</h2>
+    <h2>Edit Task</h2>
     <form style="width: 50%; margin: auto;" method="POST">
         {% csrf_token %}
         {{ form|crispy }}

@@ -1,7 +1,5 @@
 {% extends 'base.html '%} 
 
-{%%}
-
 {%block title %}
 HTML Form
 {% endblock %}
@@ -9,7 +7,7 @@ HTML Form
 {% block content %}
 
 <div style="width: 50%; height: 500px; margin: auto" class="pt-5">
-  <h3>Movie Rating Form</h3>
+  <h3>Basic HTML Form</h3>
   <form method="post">
     {% csrf_token %}
     <div class="mb-3">
@@ -40,6 +38,32 @@ HTML Form
       <option value="4">4</option>
       <option value="5">5</option>
     </select>
+
+    <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+    <!-- Radio Buttons -->
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br><br>
+
+    <!-- Checkboxes -->
+    <label>Hobbies:</label>
+    <input type="checkbox" id="hobby1" name="hobby" value="Reading">
+    <label for="hobby1">Reading</label>
+    <input type="checkbox" id="hobby2" name="hobby" value="Traveling">
+    <label for="hobby2">Traveling</label><br><br>
+
+    <!-- Dropdown -->
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+        <option value="us">United States</option>
+        <option value="uk">United Kingdom</option>
+        <option value="canada">Canada</option>
+    </select><br><br>
+
     <button type="submit" class="btn btn-primary mt-5">Submit</button>
   </form>
 </div>

@@ -5,7 +5,7 @@ class TaskModel(models.Model):
     taskDescription = models.TextField()
     is_completed = models.BooleanField(default=False)
     task_assign_date = models.DateTimeField(auto_now_add=True)
-    categories = models.ManyToManyField('catagory.TaskCategory', related_name='task_categories', blank=True)  # Change here
+    categories = models.ManyToManyField('catagory.TaskCategory', related_name='task_categories', blank=True) 
 
     def __str__(self):
         return self.taskTitle

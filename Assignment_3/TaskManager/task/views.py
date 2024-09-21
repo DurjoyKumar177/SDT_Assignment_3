@@ -10,7 +10,7 @@ def add_task(request):
     if request.method == 'POST':
         task_form = forms.TaskForm(request.POST)
         if task_form.is_valid():
-            task = task_form.save()  # Save the task first            
+            task = task_form.save()             
             return redirect('show_tasks')
     else:
         task_form = forms.TaskForm()

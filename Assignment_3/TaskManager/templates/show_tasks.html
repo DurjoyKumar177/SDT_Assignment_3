@@ -1,35 +1,41 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="row">
+  {% for task in tasks %}
+  <div class="col-md-4">
+    <div class="card mb-4">
+      <div class="card-body bg-warning text-dark">
+        <p class="card-text"><strong>Task ID:</strong> {{ task.id }}</p>
 
-{% block content %}
-    <div class="row">
-        {% for task in tasks %}
-            <div class="col-md-4 ">
-                <div class="card mb-4 ">
-                    <div class="card-body bg-warning text-dark">
-                        <p class="card-text"><strong>Task ID:</strong> {{ task.id }}</p>
+        <p class="card-text"><strong>Task: </strong> {{ task.taskTitle }}</p>
 
-                        <p class="card-text"><strong>Task: </strong> {{ task.taskTitle }}</p>
-                        
-                        <p class="card-text"><strong>Assigned:</strong> {{ task.task_assign_date|date:"Y-m-d" }}</p>
-                        
-                        <p class="card-text"><strong>Description:</strong> {{ task.taskDescription }}</p>
-                        
-                        <p class="card-text"><strong>Category:</strong>
-                            {% for category in task.categories.all %}
-                            <button class="btn btn-secondary btn-sm mt-1" disabled >{{ category.category_name }}</button>
-                            {% endfor %}
-                        </p>
-                        
-                        {% if task.is_completed %}
-                            <p class="badge bg-success">Completed</p>
-                        {% else %}
-                            <a href="{% url 'edit_task' task.id %}" class="btn btn-primary">Edit</a>
-                            <a href="{% url 'delete_task' task.id %}" class="btn btn-danger">Delete</a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+        <p class="card-text">
+          <strong>Assigned:</strong> {{ task.task_assign_date|date:"Y-m-d" }}
+        </p>
+
+        <p class="card-text">
+          <strong>Description:</strong> {{ task.taskDescription }}
+        </p>
+
+        <p class="card-text">
+          <strong>Category:</strong>
+          {% for category in task.categories.all %}
+          <button class="btn btn-secondary btn-sm mt-1" disabled>
+            {{ category.category_name }}
+          </button>
+          {% endfor %}
+        </p>
+
+        {% if task.is_completed %}
+        <p class="badge bg-success">Completed</p>
+        {% else %}
+        <a href="{% url 'edit_task' task.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'delete_task' task.id %}" class="btn btn-danger"
+          >Delete</a
+        >
+        {% endif %}
+      </div>
     </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

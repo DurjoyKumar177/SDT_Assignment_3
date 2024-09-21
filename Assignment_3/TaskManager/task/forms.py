@@ -7,4 +7,4 @@ class TaskForm(forms.ModelForm):
 
     class Meta:
         model = TaskModel
-        fields = ['taskTitle', 'taskDescription', 'is_completed', 'categories']  # Include the categories field
+        fields = ['taskTitle', 'taskDescription', 'is_completed', 'categories']  
