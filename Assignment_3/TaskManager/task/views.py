@@ -4,9 +4,7 @@ from . import forms
 
 # # Create your views here.
 
-def show_tasks(request):
-    tasks = TaskModel.objects.all()
-    return render(request, 'show_tasks.html', {'tasks': tasks})
+
 
 def add_task(request):
     if request.method == 'POST':
